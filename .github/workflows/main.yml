@@ -1,4 +1,4 @@
-on: 
+on:
   schedule:
   - cron: '0 12 * * *' # every day at noon
 
