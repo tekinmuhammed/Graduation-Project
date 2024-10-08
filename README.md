@@ -32,3 +32,9 @@ Accuracy, Precision, Recall, and F1-Score. Through cross-validation, we obtained
 
 ### Future Work
 Our current focus is on improving model accuracy and generalization by expanding the dataset and exploring more sophisticated augmentation techniques. We are also working towards integrating additional features, such as a detailed dental health report and real-time X-ray analysis capabilities.
+
+## How to Use
+To run the project locally, download the Panorex.AI folder to your computer. Inside the folder, you will need a file named "detector2.pth" for the model to work. 
+Please contact me at fetih.tekin.7@gmail.com to receive this file!!!
+
+!!Keep in mind that the project currently runs locally only.
