@@ -1,0 +1,458 @@
+html{
+    scroll-behavior: smooth; /* kaydırmayı yumuşak yapma */
+}
+
+*{
+    padding: 0; /*  varsayılan iç boşluklarısıfırlama */
+    margin: 0; /*   dış boşlukları sıfırlar */
+    box-sizing: border-box; /* kenar ve dolgu eklenirken  toplam boyutları korur */
+    text-decoration: none; /* metin dekorasyonunu kaldırır (alt çizgi vs.) */
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*  yazı tiplerini uygula */
+}
+
+image{
+    width: 100px; /* görsellerin genişliğini 100 piksel olarak ayarla */
+}
+
+section{
+    padding: 100px 0;
+    background: #298473; /*  arka plan rengini ayarlama */
+}
+
+.section_title{
+    margin-bottom: 30px; /* başlık bölümlerinin alt boşluğunu ayarlama */
+}
+
+.section_title h2{
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    transition: all .5s ease-in-out; /* özellik değişikliklerini 0.5 saniye boyunca yumuşak hale getir */
+}
+
+.section_title h2:hover{
+    background-color: #24caac;
+}
+
+/* HEADER */
+
+header{
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    position: fixed; /* başlığı sabitler sayfayı kaydırsan bile aynı yerde kalır */
+    width: 100%;
+    z-index: 5; /* başlığın diğer öğelerin üzerinde kalmasını sağlama */
+}
+
+.navbar{
+    display: flex; /* flexbox düzeni ile öğeleri hizalama */
+    justify-content: space-between; /* yatayda iki uçta hizala */
+    align-items: center; /* dikeyde ortalar */
+    margin: 0 auto; 
+    width: 80%;
+    padding: 10px 0;
+}
+
+.nav_links{
+    display: flex;
+}
+
+.nav_links li a{
+    margin-left: 15px;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.nav_links li a:hover{
+    background: #24CAAC; /* bağlantıya fare ile gelince arka plan rengini değiştir */
+}
+
+.logo h2 a{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* ANASAYFA */
+.inner_anasayfa{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+    color: #fff;
+    background-image: url(/static/img/10.png);
+    background-size: auto;
+    background-position: center;
+}
+
+.child_anasayfa{
+    background-color: rgba(0, 0, 0, 0.5); /* arkaplan rengini yarı şeffaf yap */
+    padding: 70px;
+    flex-basis: 1%; /* esnekliği %1 yapar içeriğin diğer içeriklerle orantılı büyümesini sağlar */
+}
+
+.child_anasayfa h1{
+    font-size: 50px;
+    color: #24CAAC;
+}
+
+.span_child{
+    color: #b928a6;
+}
+
+.child_anasayfa p{
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.btn{
+    background-color: #24CAAC;
+    padding: 12px 28px;
+    border-radius: 20px;
+    color: #fff;
+    border: 1px solid #24CAAC;
+    font-weight: 700;
+    cursor: pointer; /* fare imlecini el gösterici yapma */
+    transition: all 0.3s ease;
+}
+
+.btn:hover{
+    background: transparent;
+    letter-spacing: 1px;
+}
+
+.btnrsm{
+    background-color: #24CAAC;
+    padding: 12px 28px;
+    border-radius: 20px;
+    color: #fff;
+    border: 1px solid #24CAAC;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnrsm:hover{
+    background: transparent;  /* fareyle üzerine gelindiğinde düğme arka plan rengini saydam yap */
+    letter-spacing: 1px; /* harfler arası boşluk ayarı */
+}
+
+/* Resim yükle */
+
+.innerupload{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-image: url(/static/img/13.png);
+    background-size: auto;
+    background-position: center;
+}
+
+.innerupload_child {
+    flex-basis: 46%;
+    color: #fff;
+    padding: 70px;
+    background: rgba(55, 66, 80, 0.281);
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: all 0.5s ease-in;
+}
+
+.innerupload_child:hover {
+    border: 1px solid #24CAAC;
+}
+
+.innerupload_child .icon {
+    font-size: 25px;
+    color: #b928a6;
+}
+
+.innerupload_child h2 {
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.innerupload_child p {
+    font-family: 6px;
+}
+
+.innerupload_child form {
+    margin-top: 20px;
+}
+
+.innerupload_child form input[type="file"] {
+    display: block;
+    margin: 10px 0;
+}
+
+.innerupload_child form input[type="submit"] {
+    background-color: #24CAAC;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.innerupload_child form input[type="submit"]:hover {
+    background-color: #1e9e8c;
+}
+
+#dropzone {
+    border: 2px dashed #24CAAC;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#dropzone p {
+    margin: 0;
+    color: #fff;
+}
+
+/* sonuç ekrani*/
+.innersonuc{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-image: url(/static/img/13.png); /* arkaplan resmi */
+    background-size: auto;
+    background-position: center;
+}
+
+.innersonuc_child{
+    flex-basis: 40%;
+    color:#fff;
+    padding: 70px;
+    background: rgba(55, 66, 80, 0.281);
+    border-radius:5px;
+    border: 1px solid transparent;
+    transition: all 0.5s ease-in;
+}
+
+.innersonuc_child:hover{
+    border: 1px solid #24CAAC;
+}
+
+.innersonuc_child .icon{
+    font-size: 25px;
+    color: #24CAAC;
+}
+
+.innersonuc_child h3{
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.innersonuc_child p{
+    font-family: 16px;
+}
+
+
+/* .sssekranıi*/
+
+.innersss{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-image: url(/static/img/10.png);
+    background-size: auto;
+    background-position: center;
+}
+
+.innersss_child{
+    flex-basis: 70%;
+    color:#fff;
+    padding: 70px;
+    background: rgba(55, 66, 80, 0.281);
+    border-radius:5px;
+    border: 1px solid transparent;
+    transition: all 0.5s ease-in;
+}
+
+.innersss_child:hover{
+    border: 1px solid #24CAAC;
+}
+
+.innersss_child .icon{
+    font-size: 25px;
+    color: #24CAAC;
+}
+
+.innersss_child h3{
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.innersss_child p{
+    font-family: 16px;
+}
+
+/* .bilgiekrani */
+
+.innerbilgi{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-image: url(/static/img/13.png);
+    background-size: auto;
+    background-position: center;
+}
+
+.innerbilgi_child{
+    flex: 1;
+    flex-basis: 43%;
+    color:#fff;
+    padding: 70px;
+    background: rgba(55, 66, 80, 0.281);
+    border-radius:5px;
+    border: 1px solid transparent;
+    transition: all 0.5s ease-in;
+    text-indent: 20px; /* metnin ilk satırını içe doğru kaydır */
+    position: relative;
+    font-size: 13px;
+}
+
+.altMetin {
+    position: absolute; /* pozisyonu absolute  */
+    bottom: 10px; /* alt kenardan mesafe */
+    left: 50%; /* ortala */
+    transform: translateX(-50%); /* yatayda ortala */
+    text-align: center; /* metni ortala */
+    width: 100%; /* tam genişlik */
+}
+
+.innerbilgi_child form input,textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #2e3439;
+    border: none;
+    resize: none;
+    border-radius: 25px;
+    transition: .3s ease-in;
+}
+
+.innerbilgi_child form input,textarea:focus{
+    color: #fff;
+}
+
+.innerbilgi_child form input:focus{
+    letter-spacing: 1px;
+
+}
+
+.innerbilgi_child form textarea:focus{
+    letter-spacing: 1px;
+}
+
+.innerbilgi_child form input:last-child{
+    margin-bottom: 0;
+    background: #24CAAC;
+    border: 1px solid #24CAAC;
+    transition: .3s;
+}
+
+.innerbilgi_child form input:last-child:hover{
+    background: transparent;
+    color: #fff;
+}
+
+.innerbilgi_child:hover{
+    border: 1px solid #24CAAC;
+}
+
+.innerbilgi_child .icon{
+    font-size: 25px;
+    color: #b928a6;
+}
+
+.innerbilgi_child h6{
+    font-size: 25px;
+    margin: 5px 0;
+}
+
+.innerbilgi_child p{
+    font-family: 1px;
+}
+
+.innerbilgi_childform{
+    flex: 2;
+    flex-basis: 40%;
+    color:#fff;
+    padding: 70px;
+    background: rgba(55, 66, 80, 0.281);
+    border-radius:5px;
+    border: 1px solid transparent;
+    transition: all 0.5s ease-in;
+}
+
+.innerbilgi_childform form input,textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #2e3439;
+    border: none;
+    resize: none;
+    border-radius: 25px;
+    transition: .3s ease-in;
+}
+
+.innerbilgi_childform form input,textarea:focus{
+    color: #fff;
+}
+
+.innerbilgi_childform form input:focus{
+    letter-spacing: 1px;
+
+}
+
+.innerbilgi_childform form textarea:focus{
+    letter-spacing: 1px;
+}
+
+.innerbilgi_childform form input:last-child{
+    margin-bottom: 0;
+    background: #24CAAC;
+    border: 1px solid #24CAAC;
+    transition: .3s;
+}
+
+.innerbilgi_childform form input:last-child:hover{
+    background: transparent;
+    color: #fff;
+}
+
+.innerbilgi_childform:hover{
+    border: 1px solid #24CAAC;
+}
+
+.innerbilgi_childform .icon{
+    font-size: 25px;
+    color: #b928a6;
+}
+
+.innerbilgi_childform h6{
+    font-size: 25px;
+    margin: 5px 0;
+}
+
+.innerbilgi_childform p{
+    font-family: 10px;
+}

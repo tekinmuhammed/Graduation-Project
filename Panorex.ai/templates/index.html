@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Karakter setini ayarlama -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- en güncel tarayıcı motorunu kullanma -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- sayfa genişliğini cihazın genişliğiyle eşleştirme ve ilk ölçeklemeyi 1.0 olarak ayarlama -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font/PPTelegraf-Regular.otf') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-brands-400.ttf') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-brands-400.woff2') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-regular-400.ttf') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-regular-400.woff2') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-solid-900.ttf') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-solid-900.woff2') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-v4compatibility.ttf') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webfonts/fa-v4compatibility.woff2') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-4B6W6v29UShjRXO8v4AY0Ri7hiQpHn13Z+h3DZnH/g/e7B7cn2Q1oxm+mGkMb8QJ" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="/static/font/PPTelegraf-Regular.otf">
+    <link rel="stylesheet" href="/static/webfonts/fa-brands-400.ttf">
+    <link rel="stylesheet" href="/static/webfonts/fa-brands-400.woff2">
+    <link rel="stylesheet" href="/static/webfonts/fa-regular-400.ttf">
+    <link rel="stylesheet" href="/static/webfonts/fa-regular-400.woff2">
+    <link rel="stylesheet" href="/static/webfonts/fa-solid-900.ttf">
+    <link rel="stylesheet" href="/static/webfonts/fa-solid-900.woff2">
+    <link rel="stylesheet" href="/static/webfonts/fa-v4compatibility.ttf">
+    <link rel="stylesheet" href="/static/webfonts/fa-v4compatibility.woff2"> -->
+    
+    <title>PANOREX.AI</title>
+</head>
+<body>
+    <header>
+        <div class="navbar"> 
+            <div class="logo">
+                <h2><a href="#anasayfa" id="PANOREX.AI">PANOREX.AI</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="#anasayfa" id="anasayfa">Anasayfa</a></li>
+                <li><a href="#resimyukle">Resim Yükle</a></li>
+                <li><a href="#sonucekrani">Sonuç</a></li>
+                <li><a href="#sss">Nasıl Kullanırım</a></li>
+                <li><a href="#bilgi">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- anasayfa -->
+    <section id="anasayfa">
+        <div class="inner_anasayfa">
+            <div class="child_anasayfa">
+                <h1>DİŞLERİNİN DURUMUNU <span class="span_child">MERAK MI EDİYORSUN?</span></h1>
+                <p>Tomografi sonucun hakkında bilgi almak için</p>
+                <button class="btn" id="resimyuklebuton" onclick="atla()">Resim Yükle</button> <!-- resim yükleme butonu -->
+            </div>        
+        </div>
+    </section>
+    <!-- resimyükle -->
+    <section id="resimyukle">
+        <div class="section_title">
+            <h2>Resim Yükle</h2>
+        </div>
+        <div class="innerupload">
+            <div class="innerupload_child">
+                <div class="icon" style="display:none;">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>Sayın Kullanıcı</h3>
+                <p>Bu platformda sunulan diş tomografisi analizi, sadece genel bir değerlendirme amacı taşımaktadır. Elde edilen sonuçlar, bir uzman diş hekimi tarafından yapılan kapsamlı bir muayene ve değerlendirmenin yerini tutmaz.
+
+                    Lütfen unutmayın ki, diş sağlığıyla ilgili kesin bir teşhis ve tedavi planı için mutlaka bir uzman diş hekimine başvurmalısınız. Diş tomografisi sonuçları, yalnızca bir uzmanın deneyimi ve uzmanlığı ile doğrulanabilir.
+                    
+                    Bu platformdaki bilgiler sadece bilgilendirme amaçlıdır ve kesinlikle tıbbi tavsiye yerine geçmez. Herhangi bir rahatsızlık veya sorun durumunda bir sağlık profesyoneline başvurmanız önemlidir.
+                     </p> <br>
+                <p>Sağlıklı günler dileriz.</p>
+            </div>
+            <div class="innerupload_child">
+                <div class="icon" style="display:none;">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h2>Resim Yükle</h2>
+                <input type="file" id="fileInput" accept="image/*" style="display:none;"> <!-- dosya seçme inputu (görünmez -->
+                <form method="post" action="/upload" enctype="multipart/form-data">
+                    <input type="file" name="file" >
+                    <input type="submit" value="Upload" >
+                </form>
+                <p id="Sonuç"></p> <!-- sonuç gösterilecek yer -->
+                <div id="dropzone" class="dropzone"> <!-- sürükle bırak alanı -->
+                    *
+                    <p>Yüklediğiniz resmin <strong>.png</strong> formatında olduğundan emin olunuz.</p> <!-- yükleme formatı bilgisi -->
+                </div>                
+            </div>
+        </div>
+    </section>
+    <!-- sonuç -->
+    <section id="sonucekrani">
+        <div class="section_title">
+            <h2>Sonuç Ekranı</h2>
+        </div>
+        <div class="innersonuc">
+            <div class="innersonuc_child">
+                <img src="../static/detected_objects.png" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- sss -->
+    <section id="sss">
+        <div class="section_title">
+            <h2>Nasıl Kullanırım</h2>
+        </div>
+        <div class="innersss">
+            <div class="innersss_child">
+                <h2>Resim Yükleme:</h2> <!-- resim Yükleme başlığı ve adımları -->
+                <li>Adım 1: "Resim Yükle" butonuna tıklayın.</li>
+                <li>Adım 2: Bilgisayarınızdan resminizi seçin ve açın.</li>
+                <li>Adım 3: Resim yükleme işlemi tamamlandığında çıktıyı alabilir veya inceleyebilirsiniz.</li>
+                <li>** Geçmiş panoramik film sonuçlarınıza e-Nabız üzerinden veya e- Devlet' ten erişebilirsiniz.</li>
+                </ol>
+
+                <!-- <h2>Yazdırma:</h2> yazdırma başlığı ve adımları
+                <li>Adım 1: "Yazdır" butonuna tıklayın.</li>
+                 <li>Adım 2: Yazıcınızı seçin ve yazdırma ayarlarınızı yapılandırın.</li>
+                <li>Adım 3: Yazdırma işlemini başlatmak için "Yazdır" butonuna tıklayın.</li>
+                </ol>
+
+                <h2>Dil Seçenekleri:</h2>  dil Seçenekleri başlığı ve açıklaması
+                <p>Sitemizi Türkçe veya İngilizce olarak kullanabilirsiniz. Dil seçeneklerini aşağıdaki adımları izleyerek değiştirebilirsiniz:</p>
+                <li>Adım Sayfanın sağ üst köşesinde yer alan "Dil Değiştirme" butonuna tıklayın.</li>
+                <li>Adım Dil seçiminiz otomatik olarak kaydedilecektir ve siteyi seçtiğiniz dilde kullanmaya devam edebilirsiniz.</li>
+                </ol> -->
+
+                <h2>Sıkça Sorulan Sorular:</h2>
+                <p>Eğer herhangi bir sorunla karşılaşırsanız "İletişim" sayfamızdan bize ulaşabilirsiniz.</p>
+        </div>
+    </section>
+    <!-- bilgi -->
+    <section id="bilgi">
+        <div class="section_title">
+            <h2>İletişim</h2>
+        </div>
+        <div class="innerbilgi">
+            <div class="innerbilgi_child">
+            <div class="icon" style="display:none;">
+                <i class="fas fa-laptop"></i>
+            </div>
+            <h6>Sayın Kullanıcı</h6>
+                <p> Bu platformda sunulan diş tomografisi analizi, sadece genel bir değerlendirme amacı taşımaktadır. Elde edilen sonuçlar, bir uzman diş hekimi tarafından yapılan kapsamlı bir muayene ve değerlendirmenin yerini tutmaz.</p>
+                <p> Bu platformdaki bilgiler sadece bilgilendirme amaçlıdır ve kesinlikle tıbbi tavsiye yerine geçmez. Herhangi bir rahatsızlık veya sorun durumunda bir sağlık profesyoneline başvurmanız önemlidir.</p>
+                <p> Bazı ek bilgiler:</p>
+                <p> 1. Gizlilik ve Güvenlik Bildirimi: "Yüklediğiniz diş tomografisi fotoğrafları, gizlilik ve güvenlik standartlarımız doğrultusunda saklanacaktır. Hiçbir kişisel bilgi paylaşılmayacak veya üçüncü taraflarla paylaşılmayacaktır. Sağlığınıza dair bilgilerinizi güvende tutmak için gereken tüm önlemleri aldık."</p>
+                <p> 2. Teknolojik Sınırlamalar: "Bu platform, bir diş hekimi muayenesinin yerini alacak bir teşhis koyma amacı taşımamaktadır. Teknolojik sınırlamalar nedeniyle, yapılan analizler bazı durumları tam olarak tespit edemeyebilir. Bu nedenle, kesin bir teşhis için bir diş hekimine danışmanız önemlidir."</p>
+                <p> 3. Tıbbi Acil Durum Bildirimi: "Bu platformdaki bilgiler, acil bir tıbbi durumun yerini alamaz. Acil durumlarınız varsa hemen bir sağlık profesyoneli ile iletişime geçmelisiniz."</p>
+                <p> 4. Kullanım Koşulları ve Sözleşme: "Lütfen platformumuzu kullanmadan önce Kullanım Koşulları ve Gizlilik Politikası'nı dikkatlice okuyunuz. Bu belgeler, platformun kullanımıyla ilgili önemli bilgiler içermektedir."</p>
+                <br>
+                <div class="altmetin">
+                Sağlıklı Günler Dileriz <br> <br>
+                Saygılarımızla,<br>
+                Panorex.AI Ekibi
+            </div>
+        </div>
+            <div class="innerbilgi_childform">
+                <form action="https://api.web3forms.com/submit" method="POST"> <!-- iletişim formu -->
+                    <h2>Geri Bildiriminiz Değerli!</h2> <br>
+                    <input type="hidden" name="access_key" value="ed3dda41-1302-49f3-9622-6d40786097f2">
+                    <input placeholder="İsim" type="text" name="fullname" id="fullname" required>
+                    <input placeholder="Email" type="text" name="email" id="email" required>
+                    <input placeholder="Konu" type="text" name="topic" id="topic" required>
+                    <textarea placeholder="Mesaj" name="message" id="message" cols="30" rows="10" required></textarea>
+                    <input type="submit" value="Gönder" name="" id="submit">
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+
+        // 'atla' fonksiyonu 'resimyukle' ID'sine sahip bölüme yumuşak kaydırma yap
+        function atla(){
+            document.getElementById("resimyukle").scrollIntoView({behavior: "smooth"});
+        }
+
+        // 'PANOREX.AI' id sine  tıklama  ekler ve 'yenile' fonksiyonunu çağırır
+        document.getElementById("PANOREX.AI").addEventListener("click",yenile);
+
+        // 'yenile' fonksiyonu sayfayı yeniler
+        function yenile(){
+            location.reload();
+            // sayfayı en üste getirme ********************çalışmıyo******çözemiyoom***************************************************
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 'anasayfa' id sine  tıklama  ekler  sayfanın en üstüne yumuşak kaydırma yapar
+        document.getElementById("anasayfa").addEventListener("click", function(){
+            window.scrollTo({top:0, behavior: 'smooth'})
+        });
+
+        // buton tıklama olayını dinle
+        document.querySelector('.btnrsm').addEventListener('click', function() {
+            document.getElementById('fileInput').click();
+        });
+
+        // resim yüklendiğinde dosyayı işleyin
+        document.getElementById('fileInput').addEventListener('change', handleFiles);
+
+        // dropzone olayları
+        const dropzone = document.getElementById('dropzone');
+
+        dropzone.addEventListener('dragover', function(event) {
+            event.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+
+        dropzone.addEventListener('dragleave', function() {
+            dropzone.classList.remove('dragover');
+        });
+
+        dropzone.addEventListener('drop', function(event) {
+            event.preventDefault();
+            dropzone.classList.remove('dragover');
+            const files = event.dataTransfer.files;
+            handleFiles({ target: { files } });
+        });
+
+        // dosya kontrolü ve işleme fonksiyonu
+        function handleFiles(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.type === 'image/png') {
+                    const formData = new FormData();
+                    formData.append('file', file);
+
+                    // fetch ile dosyayı sunucuya gönder
+                    fetch('http://localhost:5000/predict', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('Sonuç').innerText = `Tahmin: ${data.prediction}`;
+                    })
+                    .catch(error => console.error('Error:', error));
+                } else {
+                    alert('Lütfen sadece PNG formatında bir resim seçin.');
+                }
+            } else {
+                alert('Lütfen bir resim seçin.');
+            }
+        }
+
+    </script>
+</body>
+</html>
