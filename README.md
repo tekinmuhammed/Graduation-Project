@@ -1,4 +1,4 @@
-# Panorex.AI - University Graduation Project
+# Panorex.AI
 Panorex.AI is an innovative web platform designed to give users insights into their oral and dental health by evaluating dental tomography images with the power of artificial intelligence. The platform name, "Panorex.AI," is derived from the combination of panoramic X-rays and AI (artificial intelligence), reflecting its core functionality.
 
 ### Project Overview
